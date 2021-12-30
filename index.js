@@ -25,5 +25,5 @@ var user = new Composer('user1', sequencer);
 
 //console.log(user.saveComposition());
 
-//sequencer.removeTrackById(2)
-//console.log(sequencer.getTracks())
+sequencer.changeTrackNameById(2, 'update_track2')
+console.log(sequencer.getTracks())

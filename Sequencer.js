@@ -39,19 +39,11 @@ Sequencer.prototype.removeTrackById = function (id){
 
 Sequencer.prototype.changeTrackNameById = function (id, name){
     if (id && name){
-        for (var i = 0; i < this.__tracks.length; i++){
-            if (this.__tracks[i].getId() === id){
-                this.__tracks[i].setName(name);
-                break;
+        this.__tracks.forEach(function (track, index, tracks){
+            if (track.getId() === id){
+                tracks[index].setName(name);
             };
-        };
-        // var tracks = this.__tracks.filter(function (element){
-        //     return element.getId() === id;
-        // });
-
-        // if (tracks.length > 0){
-        //     tracks[0].setName(name);
-        // };
+        });
     };
 };
 
