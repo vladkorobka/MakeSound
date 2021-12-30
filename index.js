@@ -23,7 +23,4 @@ sequencer.addTrack(track2);
 
 var user = new Composer('user1', sequencer);
 
-//console.log(user.saveComposition());
-
-sequencer.changeTrackNameById(2, 'update_track2')
-console.log(sequencer.getTracks())
+console.log(user.saveComposition());

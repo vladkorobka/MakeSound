@@ -30,23 +30,21 @@ Composer.prototype.changeBPM = function (bmp){
 Composer.prototype.saveComposition = function (){
     if (this.__sequencer){
         var tracksForSave = [];
-        var sequencerTracks = this.__sequencer.getTracks();
-        for (var i = 0; i < sequencerTracks.length; i++){
+        this.__sequencer.getTracks().forEach(function (track){
             var instrumentsForSave = [];
-            var tracksIntruments = sequencerTracks[i].getInstruments()
-            for (var j = 0; j < tracksIntruments.length; j++){
+            track.getInstruments().forEach(function (instrument){
                 instrumentsForSave.push({
-                    'name': tracksIntruments[j].getName(),
-                    'volume': tracksIntruments[j].getVolume(),
-                    'delay': tracksIntruments[j].getDelay()
+                    'name': instrument.getName(),
+                    'volume': instrument.getVolume(),
+                    'delay': instrument.getDelay()
                 });
-            };
-            tracksForSave.push({
-                'id': sequencerTracks[i].getId(),
-                'name': sequencerTracks[i].getName(),
-                'instrument': instrumentsForSave
             });
-        };
+            tracksForSave.push({
+                'id': track.getId(),
+                'name': track.getName(),
+                'instruments': instrumentsForSave
+            });
+        });
         return {
             'time': this.__sequencer.getTime(),
             'tracks': tracksForSave
