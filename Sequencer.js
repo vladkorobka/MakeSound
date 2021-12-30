@@ -34,12 +34,6 @@ Sequencer.prototype.removeTrackById = function (id){
                 tracks.splice(index, 1);
             };
         });
-        // for (var i = 0; i < this.__tracks.length; i++){
-        //     if (this.__tracks[i].getId() === id){
-        //         this.__tracks.splice(i, 1);
-        //         break;
-        //     };
-        // };
     };
 };
 
