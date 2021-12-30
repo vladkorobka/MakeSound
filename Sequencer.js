@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function Sequencer(bpm = 120, time = 0, play = false, tracks = []){
     this.__bpm = bpm;
@@ -29,12 +29,17 @@ Sequencer.prototype.addTrack = function (track){
 
 Sequencer.prototype.removeTrackById = function (id){
     if (id){
-        for (var i = 0; i < this.__tracks.length; i++){
-            if (this.__tracks[i].getId() === id){
-                this.__tracks.splice(i, 1);
-                break;
+        this.__tracks.filter(function (track, index, tracks){
+            if (track.getId() === id){
+                tracks.splice(index, 1);
             };
-        };
+        });
+        // for (var i = 0; i < this.__tracks.length; i++){
+        //     if (this.__tracks[i].getId() === id){
+        //         this.__tracks.splice(i, 1);
+        //         break;
+        //     };
+        // };
     };
 };
 

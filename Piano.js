@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function Piano(id, name, volume, delay, note, push){
     Instrument.call(this, id, name, volume, delay);

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function Track(id, colour, name, instruments = []){
     this.__id = id;
@@ -41,11 +41,10 @@ Track.prototype.addInstrument = function (instrument){
 
 Track.prototype.removeInstrunmentbyId = function (id){
     if (id && this.__instruments){
-        for (var i = 0; i < this.__instruments.length; i++){
-            if (this.__instruments[i].getId() === id){
-                this.__instruments.splice(i, 1);
-                break;
+        this.__instruments.filter(function (instrument, index, instruments){
+            if (instrument.getId() === id){
+                instruments.splice(index, 1);
             };
-        };
+        });
     };
 };

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function Instrument(id, name, volume, delay){
     this._id = id;

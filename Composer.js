@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function Composer(name, sequencer = null){
     this.__name = name;
