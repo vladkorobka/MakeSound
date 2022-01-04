@@ -27,6 +27,24 @@ Composer.prototype.changeBPM = function (bmp){
     };
 };
 
+Composer.prototype.asyncChangeBPM = function (bmp, callback) {
+    if (bmp && this.__sequencer){
+
+        // var self = this;
+        // setTimeout(function (){
+        //     callback(self.__sequencer.setBPM(bmp));
+        // }, 2000);
+
+        // setTimeout(function (){
+        //     callback(this.__sequencer.setBPM(bmp));
+        // }.bind(this), 2000);
+
+        setTimeout(function (){
+            callback(bmp);
+        }, 2000);  
+    };
+};
+
 Composer.prototype.saveComposition = function (){
     if (this.__sequencer){
         var tracksForSave = [];
