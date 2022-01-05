@@ -29,25 +29,25 @@ var user = new Composer('user1', sequencer);
 //     console.log(sequencer.getBPM());
 // });
 
-// user.asyncChangeBPM(172, function (){
-//     console.log(sequencer.getBPM());
-//     user.asyncChangeBPM(170, function (){
-//         console.log(sequencer.getBPM());
-//         user.asyncChangeBPM(155, function (){
-//             console.log(sequencer.getBPM());
-//         });
-//     });
-// });
-
-user.asyncChangeBPM(125, function (bmp){
-    this.__sequencer.setBPM(bmp);
+user.asyncChangeBPM(172, function (){
     console.log(sequencer.getBPM());
-    user.asyncChangeBPM(135, function (bmp){
-        this.__sequencer.setBPM(bmp);
+    user.asyncChangeBPM(170, function (){
         console.log(sequencer.getBPM());
-        user.asyncChangeBPM(145, function (bmp){
-            this.__sequencer.setBPM(bmp);
+        user.asyncChangeBPM(155, function (){
             console.log(sequencer.getBPM());
-        }.bind(user));
-    }.bind(user));
-}.bind(user));
+        });
+    });
+});
+
+// user.asyncChangeBPM(125, function (bmp){
+//     this.__sequencer.setBPM(bmp);
+//     console.log(sequencer.getBPM());
+//     user.asyncChangeBPM(135, function (bmp){
+//         this.__sequencer.setBPM(bmp);
+//         console.log(sequencer.getBPM());
+//         user.asyncChangeBPM(145, function (bmp){
+//             this.__sequencer.setBPM(bmp);
+//             console.log(sequencer.getBPM());
+//         }.bind(user));
+//     }.bind(user));
+// }.bind(user));

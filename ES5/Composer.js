@@ -35,13 +35,14 @@ Composer.prototype.asyncChangeBPM = function (bmp, callback) {
         //     callback(self.__sequencer.setBPM(bmp));
         // }, 2000);
 
-        // setTimeout(function (){
-        //     callback(this.__sequencer.setBPM(bmp));
-        // }.bind(this), 2000);
-
         setTimeout(function (){
-            callback(bmp);
-        }, 2000);  
+            this.__sequencer.setBPM(bmp)
+            callback();
+        }.bind(this), 2000);
+
+        // setTimeout(function (){
+        //     callback(bmp);
+        // }, 2000);  
     };
 };
 
