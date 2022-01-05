@@ -85,7 +85,7 @@ user.asyncChangeBPM(172, function (error, bpm){
     if (error){
         console.error(error);
     } else {
-        sequencer.setBPM = bpm;
+        // sequencer.setBPM = bpm;
         console.log(sequencer.getBPM);
     }
 });
