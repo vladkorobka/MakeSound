@@ -1,43 +1,38 @@
 'use strict';
 
 class Instrument {
-    #id;
-    #name;
-    #volume;
-    #delay;
-
     constructor (id, name, volume, delay){
-        this.#id = id;
-        this.#name = name;
-        this.#volume = volume;
-        this.#delay = delay;
+        this._id = id;
+        this._name = name;
+        this._volume = volume;
+        this._delay = delay;
     }
 
     get getId (){
-        return this.#id;
+        return this._id;
     }
 
     get getName (){
-        return this.#name;
+        return this._name;
     }
 
     set setName (name){
-        this.#name = name;
+        this._name = name;
     }
 
     get getVolume (){
-        return this.#volume;
+        return this._volume;
     }
 
     set setVolume (volume){
-        this.#volume = volume;
+        this._volume = volume;
     }
 
     get getDelay (){
-        return this.#delay;
+        return this._delay;
     }
 
     set setDelay (delay){
-        this.#delay = delay;
+        this._delay = delay;
     }
 }

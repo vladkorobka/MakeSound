@@ -1,25 +1,28 @@
 'use strict';
 
 class Piano extends Instrument {
+    #note;
+    #push;
+
     constructor (id, name, volume, delay, note, push){
         super(id, name, volume, delay);
-        this.__note = note;
-        this.__push = push;
+        this.#note = note;
+        this.#push = push;
     }
 
     get getNote (){
-        return this.__note;
+        return this.#note;
     }
 
     set setNote (note){
-        this.__note = note;
+        this.#note = note;
     }
 
     get getPush (){
-        return this.__push;
+        return this.#push;
     }
 
     set setPush (push){
-        this.__push = push;
+        this.#push = push;
     }
 }

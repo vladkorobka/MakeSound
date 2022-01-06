@@ -1,30 +1,33 @@
 'use strict';
 
 class Composer {
+    #name;
+    #sequencer;
+
     constructor (name, sequencer = null){
-        this.__name = name;
-        this.__sequencer = sequencer;
+        this.#name = name;
+        this.#sequencer = sequencer;
     }
 
     get getName (){
-        return this.__name;
+        return this.#name;
     }
 
     set setName (name){
-        this.__name = name;
+        this.#name = name;
     }
 
     get getSequencer (){
-        return this.__sequencer;
+        return this.#sequencer;
     }
 
     set setSequencer (sequencer){
-        this.__sequencer = sequencer;
+        this.#sequencer = sequencer;
     }
 
     changeBPM (bpm){
-        if (bpm && this.__sequencer){
-            this.__sequencer.setBPM = bpm;
+        if (bpm && this.#sequencer){
+            this.#sequencer.setBPM = bpm;
         }
     }
 
@@ -37,7 +40,7 @@ class Composer {
         //     if (!bpm){
         //         error = new Error ("BPM is not defined");
         //     }
-        //     self.__sequencer.setBPM = bpm
+        //     self.#sequencer.setBPM = bpm
         //     callback(error, bpm);
         // }, 2000);
 
@@ -47,7 +50,7 @@ class Composer {
             if (!bpm){
                 error = new Error ("BPM is not defined");
             }
-            this.__sequencer.setBPM = bpm;
+            this.#sequencer.setBPM = bpm;
             callback(error, bpm);
         }.bind(this), 2000);
 

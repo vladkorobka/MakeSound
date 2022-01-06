@@ -36,7 +36,7 @@ let user = new Composer('user1', sequencer);
 // console.log(piano1.getPush);
 // piano1.setPush = 0.7;
 // console.log(piano1.getPush);
-// ----------------------------
+//----------------------------
 // console.log(track1);
 // console.log(track1.getId);
 // console.log(track1.getColour);
@@ -54,7 +54,7 @@ let user = new Composer('user1', sequencer);
 // console.log(track1.getInstruments);
 // track1.removeInstrumentById(3);
 // console.log(track1.getInstruments);
-// ----------------------------
+//----------------------------
 // console.log(sequencer);
 // console.log(sequencer.getBPM);
 // sequencer.setBPM = '172';
@@ -68,12 +68,9 @@ sequencer.addTrack(track2);
 // console.log(sequencer.getTracks);
 // sequencer.changeTrackNameById(1, 'track1_copy');
 // console.log(sequencer.getTracks);
-// console.log(sequencer.__play);
-// sequencer.play();
-// console.log(sequencer.__play);
-// sequencer.stop();
-// console.log(sequencer.__play);
-// ----------------------------
+// console.log(sequencer.play());
+// console.log(sequencer.stop());
+//----------------------------
 console.log(user);
 console.log(user.getName);
 user.setName = 'user1_copy';

@@ -1,40 +1,45 @@
 'use strict';
 
 class Sequencer {
+    #bpm;
+    #time;
+    #play;
+    #tracks;
+
     constructor (bpm = 120, time = 0, play = false, tracks = []){
-        this.__bpm = bpm;
-        this.__time = time;
-        this.__play = play;
-        this.__tracks = tracks;
+        this.#bpm = bpm;
+        this.#time = time;
+        this.#play = play;
+        this.#tracks = tracks;
     }
 
     get getBPM (){
-        return this.__bpm;
+        return this.#bpm;
     }
 
     set setBPM (bpm){
         if (bpm){
-            this.__bpm = bpm;
+            this.#bpm = bpm;
         }
     }
 
     get getTime (){
-        return this.__time;
+        return this.#time;
     }
 
     get getTracks (){
-        return this.__tracks;
+        return this.#tracks;
     }
     
     addTrack (track){
         if (track){
-            this.__tracks.push(track);
+            this.#tracks.push(track);
         }
     }
     
     removeTrackById (id){
         if (id){
-            this.__tracks.filter((track, index, tracks) => {
+            this.#tracks.filter((track, index, tracks) => {
                 if (track.getId === id){
                     tracks.splice(index, 1);
                 }
@@ -44,7 +49,7 @@ class Sequencer {
     
     changeTrackNameById (id, name){
         if (id && name){
-            this.__tracks.forEach((track, index, tracks) => {
+            this.#tracks.forEach((track, index, tracks) => {
                 if (track.getId === id){
                     tracks[index].setName = name;
                 };
@@ -53,10 +58,12 @@ class Sequencer {
     }
     
     play (){
-        this.__play = true;
+        this.#play = true;
+        return 'Sequencer is playing';
     }
     
     stop (){
-        this.__play = false;
+        this.#play = false;
+        return 'Sequencer has stopped';
     }
 }
