@@ -63,4 +63,29 @@ class Composer {
         //     callback(error, bpm);
         // }, 2000);
     }
+
+    saveComposition (){
+        if (this.#sequencer){
+            let tracksForSave = [];
+            this.#sequencer.getTracks.forEach(track => {
+                let instrumentsForSave = [];
+                track.getInstruments.forEach(instrument => {
+                    instrumentsForSave.push({
+                        'name': instrument.getName,
+                        'volume': instrument.getVolume,
+                        'delay': instrument.getDelay
+                    });
+                });
+                tracksForSave.push({
+                    'id': track.getId,
+                    'name': track.getName,
+                    'instruments': instrumentsForSave
+                });
+            });
+            return {
+                'time': this.#sequencer.getTime,
+                'tracks': tracksForSave
+            };
+        };
+    }
 }

@@ -71,18 +71,19 @@ sequencer.addTrack(track2);
 // console.log(sequencer.play());
 // console.log(sequencer.stop());
 //----------------------------
-console.log(user);
-console.log(user.getName);
-user.setName = 'user1_copy';
-console.log(user.getName);
-console.log(user.getSequencer);
-user.changeBPM(130);
-console.log(sequencer.getBPM);
-user.asyncChangeBPM(172, function (error, bpm){
-    if (error){
-        console.error(error);
-    } else {
-        // sequencer.setBPM = bpm;
-        console.log(sequencer.getBPM);
-    }
-});
+// console.log(user);
+// console.log(user.getName);
+// user.setName = 'user1_copy';
+// console.log(user.getName);
+// console.log(user.getSequencer);
+// user.changeBPM(130);
+// console.log(sequencer.getBPM);
+console.log(user.saveComposition());
+// user.asyncChangeBPM(172, function (error, bpm){
+//     if (error){
+//         console.error(error);
+//     } else {
+//         // sequencer.setBPM = bpm;
+//         console.log(sequencer.getBPM);
+//     }
+// });
