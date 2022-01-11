@@ -63,9 +63,9 @@ let user = new Composer('user1', sequencer);
 // console.log(sequencer.tracks);
 sequencer.addTrack(track1);
 sequencer.addTrack(track2);
-//sequencer.tracks.forEach(item => console.log(item));
-sequencer.removeTrackById(3);
-sequencer.tracks.forEach(item => console.log(item));
+// console.log(sequencer.tracks);
+// sequencer.removeTrackById(2);
+// console.log(sequencer.tracks);
 // sequencer.changeTrackNameById(1, 'track1_copy');
 // console.log(sequencer.tracks);
 // console.log(sequencer.isPlay());
@@ -119,17 +119,17 @@ sequencer.tracks.forEach(item => console.log(item));
 //     })
 //     .catch(error => console.error(error));
 
-// async function asyncPromiseAwaitChangeBPM (bpm1, bpm2, bpm3){
-//     try {
-//         await user.asyncPromiseChangeBPM(bpm1);
-//         console.log(sequencer.bpm);
-//         await user.asyncPromiseChangeBPM(bpm2);
-//         console.log(sequencer.bpm);
-//         await user.asyncPromiseChangeBPM(bpm3);
-//         console.log(sequencer.bpm);
-//     } catch (error){
-//         console.error(error)
-//     };
-// };
+async function asyncPromiseAwaitChangeBPM(bpm1, bpm2, bpm3){
+    try {
+        await user.asyncPromiseChangeBPM(bpm1);
+        console.log(sequencer.bpm);
+        await user.asyncPromiseChangeBPM(bpm2);
+        console.log(sequencer.bpm);
+        await user.asyncPromiseChangeBPM(bpm3);
+        console.log(sequencer.bpm);
+    } catch (error){
+        console.error(error)
+    }
+}
 
-// asyncPromiseAwaitChangeBPM(172, null, 155);
+asyncPromiseAwaitChangeBPM(172, 130, 122);
