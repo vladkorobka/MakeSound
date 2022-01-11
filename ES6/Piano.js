@@ -10,19 +10,19 @@ class Piano extends Instrument {
         this.#push = push;
     }
 
-    get getNote (){
+    get note (){
         return this.#note;
     }
 
-    set setNote (note){
+    set note (note){
         this.#note = note;
     }
 
-    get getPush (){
+    get push (){
         return this.#push;
     }
 
-    set setPush (push){
+    set push (push){
         this.#push = push;
     }
 }

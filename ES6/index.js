@@ -56,34 +56,80 @@ let user = new Composer('user1', sequencer);
 // console.log(track1.getInstruments);
 //----------------------------
 // console.log(sequencer);
-// console.log(sequencer.getBPM);
-// sequencer.setBPM = '172';
-// console.log(sequencer.getBPM);
-// console.log(sequencer.getTime);
-// console.log(sequencer.getTracks);
+// console.log(sequencer.bpm);
+// sequencer.bpm = '172';
+// console.log(sequencer.bpm);
+// console.log(sequencer.time);
+// console.log(sequencer.tracks);
 sequencer.addTrack(track1);
 sequencer.addTrack(track2);
-// console.log(sequencer.getTracks);
-// sequencer.removeTrackById();
-// console.log(sequencer.getTracks);
+//sequencer.tracks.forEach(item => console.log(item));
+sequencer.removeTrackById(3);
+sequencer.tracks.forEach(item => console.log(item));
 // sequencer.changeTrackNameById(1, 'track1_copy');
-// console.log(sequencer.getTracks);
-// console.log(sequencer.play());
-// console.log(sequencer.stop());
+// console.log(sequencer.tracks);
+// console.log(sequencer.isPlay());
+// sequencer.play();
+// console.log(sequencer.isPlay());
+// sequencer.stop();
+// console.log(sequencer.isPlay());
 //----------------------------
 // console.log(user);
-// console.log(user.getName);
-// user.setName = 'user1_copy';
-// console.log(user.getName);
-// console.log(user.getSequencer);
+// console.log(user.name);
+// user.name = 'user1_copy';
+// console.log(user.name);
+// console.log(user.sequencer);
 // user.changeBPM(130);
-// console.log(sequencer.getBPM);
-console.log(user.saveComposition());
-// user.asyncChangeBPM(172, function (error, bpm){
+// console.log(sequencer.bpm);
+// console.log(user.saveComposition());
+
+// user.asyncChangeBPM(172, function (error){
 //     if (error){
 //         console.error(error);
 //     } else {
-//         // sequencer.setBPM = bpm;
-//         console.log(sequencer.getBPM);
+//         console.log(sequencer.bpm);
+//         user.asyncChangeBPM(145, function (error){
+//             if (error){
+//                 console.error(error);
+//             } else {
+//                 console.log(sequencer.bpm);
+//                 user.asyncChangeBPM(155, function (error){
+//                     if (error){
+//                         console.error(error);
+//                     } else {
+//                         console.log(sequencer.bpm);
+//                     }
+//                 });
+//             }
+//         });
 //     }
 // });
+
+// user.asyncPromiseChangeBPM(172)
+//     .then(() => {
+//         console.log(sequencer.bpm);
+//         return user.asyncPromiseChangeBPM(null);
+//     })
+//     .then(() => {
+//         console.log(sequencer.bpm);
+//         return user.asyncPromiseChangeBPM(155);
+//     })
+//     .then(() => {
+//         console.log(sequencer.bpm);
+//     })
+//     .catch(error => console.error(error));
+
+// async function asyncPromiseAwaitChangeBPM (bpm1, bpm2, bpm3){
+//     try {
+//         await user.asyncPromiseChangeBPM(bpm1);
+//         console.log(sequencer.bpm);
+//         await user.asyncPromiseChangeBPM(bpm2);
+//         console.log(sequencer.bpm);
+//         await user.asyncPromiseChangeBPM(bpm3);
+//         console.log(sequencer.bpm);
+//     } catch (error){
+//         console.error(error)
+//     };
+// };
+
+// asyncPromiseAwaitChangeBPM(172, null, 155);

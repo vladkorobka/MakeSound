@@ -13,21 +13,25 @@ class Sequencer {
         this.#tracks = tracks;
     }
 
-    get getBPM (){
+    get bpm (){
         return this.#bpm;
     }
 
-    set setBPM (bpm){
+    set bpm (bpm){
         if (bpm){
             this.#bpm = bpm;
         }
     }
 
-    get getTime (){
+    get time (){
         return this.#time;
     }
 
-    get getTracks (){
+    isPlay (){
+        return this.#play;
+    }
+
+    get tracks (){
         return this.#tracks;
     }
     
@@ -36,34 +40,32 @@ class Sequencer {
             this.#tracks.push(track);
         }
     }
-    
+
     removeTrackById (id){
         if (id){
-            this.#tracks.filter((track, index, tracks) => {
-                if (track.getId === id){
+            this.#tracks.forEach((track, index, tracks) => {
+                if (track.id === id){
                     tracks.splice(index, 1);
                 }
             });
         }
     }
-    
+
     changeTrackNameById (id, name){
         if (id && name){
             this.#tracks.forEach((track, index, tracks) => {
-                if (track.getId === id){
-                    tracks[index].setName = name;
-                };
+                if (track.id === id){
+                    tracks[index].name = name;
+                }
             });
         }
     }
     
     play (){
         this.#play = true;
-        return 'Sequencer is playing';
     }
     
     stop (){
         this.#play = false;
-        return 'Sequencer has stopped';
     }
 }

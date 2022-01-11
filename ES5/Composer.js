@@ -27,23 +27,16 @@ Composer.prototype.changeBPM = function (bmp){
     };
 };
 
-Composer.prototype.asyncChangeBPM = function (bmp, callback) {
-    if (bmp && this.__sequencer){
-
-        // var self = this;
-        // setTimeout(function (){
-        //     callback(self.__sequencer.setBPM(bmp));
-        // }, 2000);
-
-        setTimeout(function (){
-            this.__sequencer.setBPM(bmp)
-            callback();
-        }.bind(this), 2000);
-
-        // setTimeout(function (){
-        //     callback(bmp);
-        // }, 2000);  
-    };
+Composer.prototype.asyncChangeBPM = function (bpm, callback) {
+    setTimeout(function (){
+        var error;
+        if (bpm && this.#sequencer){
+            this.__sequencer.setBPM(bpm);
+        } else {
+            error = new Error("BPM is not defined");
+        };
+        callback(error);
+    }.bind(this), 2000);
 };
 
 Composer.prototype.saveComposition = function (){

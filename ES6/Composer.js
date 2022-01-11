@@ -9,19 +9,19 @@ class Composer {
         this.#sequencer = sequencer;
     }
 
-    get getName (){
+    get name (){
         return this.#name;
     }
 
-    set setName (name){
+    set name (name){
         this.#name = name;
     }
 
-    get getSequencer (){
+    get sequencer (){
         return this.#sequencer;
     }
 
-    set setSequencer (sequencer){
+    set sequencer (sequencer){
         this.#sequencer = sequencer;
     }
 
@@ -32,60 +32,52 @@ class Composer {
     }
 
     asyncChangeBPM (bpm, callback){
-
-        // 1) using self
-        // let self = this;
-        // setTimeout(function (){
-        //     let error;
-        //     if (!bpm){
-        //         error = new Error ("BPM is not defined");
-        //     }
-        //     self.#sequencer.setBPM = bpm
-        //     callback(error, bpm);
-        // }, 2000);
-
-        // 2) using bind
         setTimeout(function (){
             let error;
-            if (!bpm){
+            if (bpm && this.#sequencer){
+                this.#sequencer.bpm = bpm;
+            } else {
                 error = new Error ("BPM is not defined");
             }
-            this.#sequencer.setBPM = bpm;
-            callback(error, bpm);
+            callback(error);
         }.bind(this), 2000);
+    }
 
-        // 3) using callback with argument and calling setter in index.js
-        // setTimeout(function (){
-        //     let error;
-        //     if (!bpm){
-        //         error = new Error ("BPM is not defined");
-        //     }
-        //     callback(error, bpm);
-        // }, 2000);
+    asyncPromiseChangeBPM (bpm){
+        return new Promise ((resolve, reject) => {
+            setTimeout(function (){
+                if (bpm && this.#sequencer){
+                    this.#sequencer.bpm = bpm;
+                    resolve();
+                } else {
+                    reject(new Error ("BPM is not defined"));
+                }
+            }.bind(this), 2000);
+        });
     }
 
     saveComposition (){
         if (this.#sequencer){
-            let tracksForSave = [];
+            const tracksForSave = [];
             this.#sequencer.getTracks.forEach(track => {
-                let instrumentsForSave = [];
+                const instrumentsForSave = [];
                 track.getInstruments.forEach(instrument => {
                     instrumentsForSave.push({
-                        'name': instrument.getName,
-                        'volume': instrument.getVolume,
-                        'delay': instrument.getDelay
+                        'name': instrument.name,
+                        'volume': instrument.volume,
+                        'delay': instrument.delay
                     });
                 });
                 tracksForSave.push({
-                    'id': track.getId,
-                    'name': track.getName,
+                    'id': track.id,
+                    'name': track.name,
                     'instruments': instrumentsForSave
                 });
             });
             return {
-                'time': this.#sequencer.getTime,
+                'time': this.#sequencer.time,
                 'tracks': tracksForSave
-            };
-        };
+            }
+        }
     }
 }

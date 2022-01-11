@@ -8,31 +8,31 @@ class Instrument {
         this._delay = delay;
     }
 
-    get getId (){
+    get id (){
         return this._id;
     }
 
-    get getName (){
+    get name (){
         return this._name;
     }
 
-    set setName (name){
+    set name (name){
         this._name = name;
     }
 
-    get getVolume (){
+    get volume (){
         return this._volume;
     }
 
-    set setVolume (volume){
+    set volume (volume){
         this._volume = volume;
     }
 
-    get getDelay (){
+    get delay (){
         return this._delay;
     }
 
-    set setDelay (delay){
+    set delay (delay){
         this._delay = delay;
     }
 }

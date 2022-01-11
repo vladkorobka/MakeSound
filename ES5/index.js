@@ -25,29 +25,32 @@ var user = new Composer('user1', sequencer);
 
 //console.log(user.saveComposition());
 
-// user.asyncChangeBPM(140, function (){
-//     console.log(sequencer.getBPM());
+// user.asyncChangeBPM(140, function (error){
+//     if (error){
+//         console.error(error);
+//     } else {
+//         console.log(sequencer.getBPM());
+//     };
 // });
 
-user.asyncChangeBPM(172, function (){
-    console.log(sequencer.getBPM());
-    user.asyncChangeBPM(170, function (){
+user.asyncChangeBPM(172, function (error){
+    if (error){
+        console.error(error);
+    } else {
         console.log(sequencer.getBPM());
-        user.asyncChangeBPM(155, function (){
-            console.log(sequencer.getBPM());
+        user.asyncChangeBPM(null, function (error){
+            if (error){
+                console.error(error);
+            } else {
+                console.log(sequencer.getBPM());
+                user.asyncChangeBPM(155, function (error){
+                    if (error){
+                        console.error(error);
+                    } else {
+                        console.log(sequencer.getBPM());
+                    };
+                });
+            };
         });
-    });
+    };
 });
-
-// user.asyncChangeBPM(125, function (bmp){
-//     this.__sequencer.setBPM(bmp);
-//     console.log(sequencer.getBPM());
-//     user.asyncChangeBPM(135, function (bmp){
-//         this.__sequencer.setBPM(bmp);
-//         console.log(sequencer.getBPM());
-//         user.asyncChangeBPM(145, function (bmp){
-//             this.__sequencer.setBPM(bmp);
-//             console.log(sequencer.getBPM());
-//         }.bind(user));
-//     }.bind(user));
-// }.bind(user));

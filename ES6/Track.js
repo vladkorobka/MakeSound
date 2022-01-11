@@ -13,28 +13,28 @@ class Track {
         this.#instruments = instruments;
     }
 
-    get getId (){
+    get id (){
         return this.#id;
     }
 
-    get getColour (){
+    get colour (){
         return this.#colour;
     };
 
-    set setColour (colour){
+    set colour (colour){
         this.#colour = colour;
     }
 
-    get getName (){
+    get name (){
         return this.#name;
     }
 
-    set setName (name){
+    set name (name){
         this.#name = name;
     }
 
-    get getInstruments (){
-        if (this.#instruments.length > 0){
+    get instruments (){
+        if (this.#instruments){
             return this.#instruments;
         }
         return null;
@@ -48,8 +48,8 @@ class Track {
 
     removeInstrumentById (id){
         if (id && this.#instruments.length > 0){
-            this.#instruments.filter((instrument, index, instruments) => {
-                if (instrument.getId === id){
+            this.#instruments.forEach((instrument, index, instruments) => {
+                if (instrument.id === id){
                     instruments.splice(index, 1);
                 }
             });
