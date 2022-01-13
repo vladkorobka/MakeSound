@@ -32,7 +32,7 @@ class Composer {
     }
 
     asyncChangeBPM (bpm, callback){
-        setTimeout(function (){
+        setTimeout(() => {
             let error;
             if (bpm && this.#sequencer){
                 this.#sequencer.bpm = bpm;
@@ -40,19 +40,19 @@ class Composer {
                 error = new Error ("BPM is not defined");
             }
             callback(error);
-        }.bind(this), 2000);
+        }, 2000);
     }
 
     asyncPromiseChangeBPM (bpm){
         return new Promise ((resolve, reject) => {
-            setTimeout(function (){
+            setTimeout(() => {
                 if (bpm && this.#sequencer){
                     this.#sequencer.bpm = bpm;
                     resolve();
                 } else {
                     reject(new Error ("BPM is not defined"));
                 }
-            }.bind(this), 2000);
+            }, 2000);
         });
     }
 
@@ -77,7 +77,7 @@ class Composer {
             return {
                 'time': this.#sequencer.time,
                 'tracks': tracksForSave
-            }
+            };
         }
     }
 }

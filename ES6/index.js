@@ -64,9 +64,9 @@ let user = new Composer('user1', sequencer);
 sequencer.addTrack(track1);
 sequencer.addTrack(track2);
 // console.log(sequencer.tracks);
-// sequencer.removeTrackById(2);
+// sequencer.removeTrackById(1);
 // console.log(sequencer.tracks);
-// sequencer.changeTrackNameById(1, 'track1_copy');
+// sequencer.changeTrackNameById(2, 'track1_copy');
 // console.log(sequencer.tracks);
 // console.log(sequencer.isPlay());
 // sequencer.play();
@@ -108,15 +108,13 @@ sequencer.addTrack(track2);
 // user.asyncPromiseChangeBPM(172)
 //     .then(() => {
 //         console.log(sequencer.bpm);
-//         return user.asyncPromiseChangeBPM(null);
+//         return user.asyncPromiseChangeBPM(130);
 //     })
 //     .then(() => {
 //         console.log(sequencer.bpm);
-//         return user.asyncPromiseChangeBPM(155);
+//         return user.asyncPromiseChangeBPM(122);
 //     })
-//     .then(() => {
-//         console.log(sequencer.bpm);
-//     })
+//     .then(() => console.log(sequencer.bpm))
 //     .catch(error => console.error(error));
 
 async function asyncPromiseAwaitChangeBPM(bpm1, bpm2, bpm3){
@@ -128,7 +126,7 @@ async function asyncPromiseAwaitChangeBPM(bpm1, bpm2, bpm3){
         await user.asyncPromiseChangeBPM(bpm3);
         console.log(sequencer.bpm);
     } catch (error){
-        console.error(error)
+        console.error(error);
     }
 }
 

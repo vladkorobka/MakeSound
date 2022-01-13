@@ -53,7 +53,7 @@ class Sequencer {
 
     changeTrackNameById (id, name){
         if (id && name){
-            this.#tracks.find(track => {
+            this.#tracks.forEach(track => {
                 if (track.id === id){
                     track.name = name;
                 }
